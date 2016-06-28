@@ -2,7 +2,7 @@ var mysql = require('mysql');
 var fs = require('fs');
 var path = require('path');
 var con = mysql.createConnection({
-      host: "ubuntu",
+      host: "localhost",
       port: 3306,
       user: "root",
       password: "root",
