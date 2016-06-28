@@ -3,6 +3,7 @@ var fs = require('fs');
 var path = require('path');
 var con = mysql.createConnection({
       host: "localhost",
+      port: 3306,
       user: "root",
       password: "root",
       database: "rendezvous"
