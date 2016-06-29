@@ -46,11 +46,11 @@ module.exports = (function(){
           console.log("giving back", result);
           if(result.length == 0){
             console.log("Nothing");
-            res.json("Something different")
+            res.json(result)
           }
           else {
           console.log("CONTROLLER, FIND RESULT", result)
-          res.json("The found user");
+          res.json(result);
           }
         }
       })
