@@ -61,7 +61,7 @@ module.exports = (function(){
         }
         else {
           if(result.length == 0){
-            res.json({user: "none"})
+            res.json({user: 0})
           }
           else {
 
