@@ -37,7 +37,7 @@ module.exports = (function(){
     },
 
     finduser: function(req, res){
-      console.log("IN the controller", req.body);
+
       con.query('SELECT * FROM users WHERE username = ? AND password = ?', [req.body.username, req.body.password], function(err, result){
         if(err){
           res.json(err);
@@ -46,11 +46,11 @@ module.exports = (function(){
           console.log("giving back", result);
           if(result.length == 0){
             console.log("Nothing");
-            res.json({})
+            res.json("Something different")
           }
           else {
             console.log("CONTROLLER, FIND RESULT", result)
-          res.json(result);
+          res.json("The found user");
           }
         }
       })
