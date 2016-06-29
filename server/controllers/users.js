@@ -41,7 +41,7 @@ module.exports = (function(){
       con.query('SELECT * FROM users', function(err, result){
         if(err){
 
-          res.json(err);
+          res.json({err: "error"});
 
         }
         else {
@@ -52,7 +52,7 @@ module.exports = (function(){
           // }
           // else {
 
-          res.json(result);
+          res.json({user:result});
           // }
         }
       })
