@@ -29,11 +29,50 @@ module.exports = (function(){
       con.query('SELECT * FROM users', function(err, rows){
         if(err){
           res.json(err);
-        };
-
+        }
+        else {
         res.json(rows);
+        }
+      })
+    },
+
+    finduser: function(req, res){
+      console.log("IN the controller", req.body);
+      con.query('SELECT * FROM users WHERE username = ? AND password = ?', [req.body.username, req.body.password], function(err, result){
+        if(err){
+          res.json(err);
+        }
+        else {
+          console.log("giving back", result);
+          if(result.length == 0){
+            console.log("Nothing");
+            res.json({})
+          }
+          else {
+          res.json({user:result});
+          }
+        }
+      })
+    },
+
+    update_region: function(req,res){
+      console.log("IN the update_region controller", req.body);
+      con.query('UPDATE users SET home_lat = ?, home_long = ?, home_radius = ?, home_region = ? WHERE id = ?', [req.body.home_lat, req.body.home_long, req.body.home_radius, req.body.home_region, req.body.user_id], function(err, result){
+        if(err){
+          res.json(err);
+        }
+        else {
+          console.log("giving back", result);
+          if(result.length == 0){
+            console.log("Nothing");
+            res.json({})
+          }
+          else {
+          res.json({user:result});
+          }
+        }
       })
     }
-  }
 
+  }//closes return
 })();
