@@ -50,7 +50,7 @@ module.exports = (function(){
           // }
           // else {
           console.log("CONTROLLER, FIND RESULT", result)
-          res.json({user: result});
+          res.json({user: result, firstResult: res});
           // }
         }
       })
