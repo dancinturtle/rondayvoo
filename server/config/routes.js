@@ -20,7 +20,7 @@ module.exports = function(app){
     users.update_region(req, res);
   })
 
-  app.post('/finduser', function(req, res){
+  app.post('/singlesquid', function(req, res){
     res.json({message: "Got your json"})
     console.log("Routes to find user", req.body);
     // users.finduser(req, res);
