@@ -66,6 +66,7 @@ module.exports = (function(){
           else {
 
           res.json({user:result});
+          }
         }
       })
     },
