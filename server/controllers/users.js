@@ -55,10 +55,18 @@ module.exports = (function(){
       console.log("In the controller", req.body)
       con.query('SELECT * FROM users where username = ? and password = ?', [req.body.username, req.body.password], function(err, result){
         if(err){
+
           res.json({err: nil});
+
         }
         else {
+          if(result.length == 0){
+            res.json({user: nil})
+          }
+          else {
+
           res.json({user:result});
+          }
         }
       })
     },
