@@ -21,7 +21,7 @@ module.exports = function(app){
   })
 
   app.post('/singlesquid', function(req, res){
-    res.json({message: "Got your json"})
+    // res.json({message: "Got your json"})
     console.log("Routes to find user", req.body);
     users.finduser(req, res);
   })
