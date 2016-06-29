@@ -60,15 +60,12 @@ module.exports = (function(){
 
         }
         else {
-          // console.log("giving back", result);
-          // if(result.length == 0){
-          //   console.log("Nothing");
-          //   res.json(result)
-          // }
-          // else {
+          if(result.length == 0){
+            res.json({user: "none"})
+          }
+          else {
 
           res.json({user:result});
-          // }
         }
       })
     },
