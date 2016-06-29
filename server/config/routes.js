@@ -10,6 +10,7 @@ module.exports = function(app){
   })
 
   app.post('/adduser', function(req, res){
+
     console.log("Routes,", req);
     users.create(req, res);
   })
@@ -20,8 +21,9 @@ module.exports = function(app){
   })
 
   app.post('/finduser', function(req, res){
+    res.json({message: "Got your json"})
     console.log("Routes to find user", req.body);
-    users.finduser(req, res);
+    // users.finduser(req, res);
   })
 
   app.post('/addtrip', function(req, res){

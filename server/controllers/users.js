@@ -53,7 +53,7 @@ module.exports = (function(){
 
     finduser: function(req, res){
 
-      con.query('SELECT * FROM users', function(err, result){
+      con.query('SELECT * FROM users where username = ? and password = ?', [req.body.username, req.body.password], function(err, result){
         if(err){
 
           res.json({err: "error"});
