@@ -52,7 +52,7 @@ module.exports = (function(){
     },
 
     finduser: function(req, res){
-
+      console.log("In the controller", req.body)
       con.query('SELECT * FROM users where username = ? and password = ?', [req.body.username, req.body.password], function(err, result){
         if(err){
 
