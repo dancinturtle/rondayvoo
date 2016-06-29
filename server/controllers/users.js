@@ -43,15 +43,15 @@ module.exports = (function(){
           res.json(err);
         }
         else {
-          console.log("giving back", result);
-          if(result.length == 0){
-            console.log("Nothing");
-            res.json(result)
-          }
-          else {
+          // console.log("giving back", result);
+          // if(result.length == 0){
+          //   console.log("Nothing");
+          //   res.json(result)
+          // }
+          // else {
           console.log("CONTROLLER, FIND RESULT", result)
           res.json(result);
-          }
+          // }
         }
       })
     },
