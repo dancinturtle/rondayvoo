@@ -38,9 +38,11 @@ module.exports = (function(){
 
     finduser: function(req, res){
 
-      con.query('SELECT * FROM users WHERE username = ? AND password = ?;', [req.body.username, req.body.password], function(err, result){
+      con.query('SELECT * FROM users WHERE username = ? AND password = ?', [req.body.username, req.body.password], function(err, result){
         if(err){
+          console.log('error in select all');
           res.json(err);
+
         }
         else {
           // console.log("giving back", result);
