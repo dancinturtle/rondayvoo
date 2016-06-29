@@ -49,6 +49,7 @@ module.exports = (function(){
             res.json({})
           }
           else {
+            console.log("CONTROLLER, FIND RESULT", result)
           res.json({user:result});
           }
         }
