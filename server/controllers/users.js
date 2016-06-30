@@ -56,7 +56,7 @@ module.exports = (function(){
       con.query('SELECT * FROM users where username = ? and password = ?', [req.body.username, req.body.password], function(err, result){
         if(err){
 
-          res.json({err: nil});
+          res.json({err: nil})
 
         }
         else {
