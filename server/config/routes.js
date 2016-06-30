@@ -11,7 +11,7 @@ module.exports = function(app){
     users.index(req, res)
   })
 
-  app.get('/usersettings', function(req,res){
+  app.post('/usersettings', function(req,res){
     console.log("Routes to get user settings", req.body);
     users.getusersettings(req, res);
   })
@@ -43,7 +43,7 @@ module.exports = function(app){
 
   //trip queries
 
-  app.get('/getsingletrip', function(req,res){
+  app.post('/getsingletrip', function(req,res){
     console.log("Routes to get single trips", req.body);
     trips.getsingletrip(req, res);
   })
@@ -58,7 +58,7 @@ module.exports = function(app){
     trips.edittrip(req, res);
   })
 
-  app.get('/getalltrips', function(req,res){
+  app.post('/getalltrips', function(req,res){
     console.log("Routes to find all trips", req.body);
     trips.getalltrips(req, res);
   })
