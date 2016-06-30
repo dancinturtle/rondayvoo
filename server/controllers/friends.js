@@ -14,12 +14,11 @@ module.exports = (function(){
     //this is not installed into SWIFT YET - Weds 5pm
     create_friendship: function(req, res){
       console.log("Posted", req.body);
-      var newfriendship= {
+      var newfriendship = {
         user_id: req.body.user_id,
         friend_id: req.body.friend_id,
-        //will need to add more/reorder here based on the final SQL table
-        status: req.body.status,
-        created_at: new Date(),
+        block_user_visibility: 0,
+        status: "accepted"
       };
 
       con.query('INSERT INTO friendships SET ?', newfriendship, function(err, result){
