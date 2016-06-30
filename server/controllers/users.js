@@ -88,6 +88,44 @@ module.exports = (function(){
           }
         }
       })
+    },
+
+    getusersettings: function(req,res){
+      con.query('SELECT * FROM users WHERE id = ?', [req.body.user_id], function(err, result){
+        if(err){
+          res.json(err);
+        }
+
+        else {
+          console.log("giving back user settings", result);
+          if(result.length == 0){
+            console.log("Nothing");
+            res.json({})
+          }
+          else {
+          res.json({user:result});
+          }
+        }
+      })
+    },
+
+    hideuser: function(req,res){
+      console.log("IN the hideuser controller", req.body);
+      con.query('UPDATE users SET visibility = ? WHERE id = ?', [req.body.visibility, req.body.user_id], function(err, result){
+        if(err){
+          res.json(err);
+        }
+        else {
+          console.log("giving back", result);
+          if(result.length == 0){
+            console.log("Nothing");
+            res.json({})
+          }
+          else {
+          res.json({user:result});
+          }
+        }
+      })
     }
 
   }//closes return

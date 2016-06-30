@@ -20,8 +20,59 @@ module.exports = (function(){
         res.json(result);
       }
     })
+  },
+
+
+  getsingletrip: function(req,res){
+    console.log("posted single trip",req.body);
+    con.query('SELECT * FROM planned_trips WHERE id = ?', [req.body.trip_id], function(err, result){
+      if(err){
+        res.json(err);
+      }
+
+      else {
+        console.log("giving back single trip details", result);
+        if(result.length == 0){
+          console.log("Nothing");
+          res.json({})
+        }
+        else {
+        res.json({trip:result});
+        }
+      }
+    })
+  },
+
+  edittrip: function(req,res){
+    console.log("IN the edit_trip controller", req.body);
+    con.query('UPDATE planned_trips SET destination = ?, visiting_lat = ?, visiting_long = ?, arrive_date = ?, leave_date = ?, radius = ?, purpose = ?, housing = ? WHERE id = ?', [req.body.destination, req.body.visiting_lat, req.body.visiting_long, req.body.arrive_date, req.body.leave_date, req.body.radius, req.body.purpose, req.body.housing], function(err, result){
+      if(err){
+        res.json(err);
+      }
+      else {
+        console.log("giving back trip details", result);
+        if(result.length == 0){
+          console.log("Nothing");
+          res.json({})
+        }
+        else {
+        res.json({trip:result});
+        }
+      }
+    })
+  },
+
+  getalltrips: function(req, res){
+    con.query('SELECT * FROM planned_trips', function(err, rows){
+      if(err){
+        res.json(err);
+      }
+      else {
+        console.log("returning all trips")
+        res.json(rows);
+      }
+    })
   }
 
-  }
-
+ }
 })();
