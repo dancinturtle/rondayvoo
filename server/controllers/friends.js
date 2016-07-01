@@ -33,7 +33,7 @@ module.exports = (function(){
 
 
     getuserfriends: function(req, res){
-      con.query('SELECT * FROM friendships LEFT JOIN users on friend_id WHERE user_id = ?',[req.body.user_id], function(err, rows){
+      con.query('SELECT * FROM friendships LEFT JOIN users on friend_id = users.id WHERE user_id = ?',[req.body.user_id], function(err, rows){
         if(err){
           res.json(err);
         }
