@@ -56,6 +56,17 @@ module.exports = (function(){
         res.json(rows);
         }
       })
+    },
+
+    getfriendstrips: function(req, res){
+      con.query('SELECT * FROM friendships JOIN planned_trips on friend_id=planned_trips.user_id WHERE friendships.user_id = ?', req.body.user_id, function(err, rows){
+        if(err){
+          res.json(err);
+        }
+        else {
+          res.json(rows);
+        }
+      })
     }
 
     // //just a guess until we have final DB/SWIFT inputs.

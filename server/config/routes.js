@@ -77,6 +77,10 @@ module.exports = function(app){
     console.log("Routes to find all users friends and their info", req.body);
     friends.getuserfriends(req, res);
   })
+//this query is to get your friends' trips so you can see where they're going
+  app.post('/getfriendstrips', function(req, res){
+    friends.getfriendstrips(req, res);
+  })
 
 
 }
