@@ -19,7 +19,7 @@ module.exports = (function(){
         friend_id: req.body.friend_id,
         block_user_visibility: 0,
         status: "accepted"
-      };
+      }
 
       con.query('INSERT INTO friendships SET ?', newfriendship, function(err, result){
         if(err){
@@ -31,7 +31,22 @@ module.exports = (function(){
       })
     },
 
-
+    create_complementary_friendship: function(req, res){
+      var newfriendship = {
+        user_id: req.body.friend_id,
+        friend_id: req.body.user_id,
+        block_user_visibility: 0,
+        status: "accepted"
+      }
+      con.query('INSERT INTO friendships SET ?', newfriendship, function(err, result){
+        if(err){
+          res.json(err);
+        }
+        else {
+          res.json(result);
+        }
+      })
+    },
     getuserfriends: function(req, res){
       con.query('SELECT * FROM friendships LEFT JOIN users on friend_id = users.id WHERE user_id = ?',[req.body.user_id], function(err, rows){
         if(err){

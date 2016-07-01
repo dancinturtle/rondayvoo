@@ -69,6 +69,10 @@ module.exports = function(app){
     friends.create_friendship(req, res);
   })
 
+  app.post('/createcompfriendship', function(req, res){
+    friends.create_complementary_friendship(req, res);
+  })
+
   app.post('/getuserfriends',function(req,res){
     console.log("Routes to find all users friends and their info", req.body);
     friends.getuserfriends(req, res);
