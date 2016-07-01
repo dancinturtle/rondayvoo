@@ -69,7 +69,7 @@ module.exports = function(app){
     friends.create_friendship(req, res);
   })
 
-  app.post('/createcompfriendship', function(req, res){
+  app.post('/createComplementaryFriendship', function(req, res){
     friends.create_complementary_friendship(req, res);
   })
 
